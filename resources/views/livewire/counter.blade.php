@@ -1,5 +1,5 @@
 <div>
-    <h1>{{ $count }}</h1>
+    <h1>{{ $me }}</h1>
  
     <button wire:click="increment">+</button>
  

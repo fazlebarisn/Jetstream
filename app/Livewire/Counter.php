@@ -7,6 +7,7 @@ use Livewire\Component;
 class Counter extends Component
 {
     public $count = 1;
+    public $me = 1;
  
     public function increment()
     {
@@ -16,6 +17,10 @@ class Counter extends Component
     public function decrement()
     {
         $this->count--;
+    }
+
+    public function rw(){
+        return 44;
     }
  
     public function render()
