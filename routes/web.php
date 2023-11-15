@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SonyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/counter', function () {
-    return view('livewire.counter');
-});
+Route::get('/me', [SonyController::class, 'index'])->name('me.index');
+Route::post('/me', [SonyController::class, 'store'])->name('me.store');
 
 // Route::get('/counter', Counter::class);
 
