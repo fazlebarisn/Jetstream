@@ -18,8 +18,10 @@ Route::get('/', function () {
 });
 
 Route::get('/me', function () {
-    return view('me');
+    return view('livewire.counter');
 });
+
+// Route::get('/counter', Counter::class);
 
 Route::middleware([
     'auth:sanctum',
