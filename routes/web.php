@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\SonyController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,23 @@ Route::get('/', function () {
 // Route::get('/counter', Counter::class);
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {
-    Route::get('/dashboard', function () {
+
+    Route::get('/dashboard', [HomeController::class, 'redirectUser'])->name('dashboard');
+    
+});
+
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified','role:user'])->group(function () {
+
+    Route::get('/home', function () {
         return view('dashboard');
-    })->name('dashboard');
+    })->name('user.dashboard');
+    
+});
+
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified','role:admin'])->group(function () {
+
+    Route::get('/admin/dashboard', function () {
+        return view('dashboard');
+    })->name('admin.dashboard');
+
 });
