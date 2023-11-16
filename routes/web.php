@@ -32,7 +32,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified','role:user'])->group(function () {
 
-    Route::get('/home', function () {
+    Route::get('user/dashboard', function () {
         return view('dashboard');
     })->name('user.dashboard');
     
