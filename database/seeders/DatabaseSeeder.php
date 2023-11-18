@@ -27,12 +27,17 @@ class DatabaseSeeder extends Seeder
 
         $user_role = Role::create(['name' => 'user']);
         $user = User::create([
-            'name'      => 'User',
+            'name'      => 'User', 
             'email'     => 'user@user.com',
             'password'  => bcrypt('password')
         ]);
         $user->assignRole($user_role);
 
-        // $permission = Permission::create(['name' => 'edit articles']);
+        $permission = Permission::create(['name' => 'edit articles']);
+
+        $admin_role->givePermissionTo($permission);
+
+        // $permission->assignRole($admin_role);
+
     }
 }
