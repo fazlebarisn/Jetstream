@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\SonyController;
+use App\Livewire\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
@@ -19,7 +20,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/live', [Counter::class, 'index']);
+
 Route::get('/me', [SonyController::class, 'index']);
+Route::get('me/create', [SonyController::class, 'create']);
+Route::post('me/create', [SonyController::class, 'store'])->name('me.store');
 
 // Route::get('/me', [SonyController::class, 'index'])->name('me.index');
 // Route::post('/me', [SonyController::class, 'store'])->name('me.store');

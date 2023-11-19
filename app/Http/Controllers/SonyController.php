@@ -18,9 +18,22 @@ class SonyController extends Controller
         // return view('me');
     }
 
-    public function store(){
-        Sony::create();
-        return back()->with('success', 'Added');
+    public function create(){
+        return view('create');
+    }
+
+    public function store( Request $request ){
+        dd($request);
+        Sony::create( $request->all() );
+        return response(['success' => 'Employee created successfully.']);
+    }
+
+    //Validate data brfore insert
+    private function validatedData(){
+        return request()->validate([
+            'customer.name' => 'required',
+            'customer.city' => 'required',
+        ]);
     }
 
 }
