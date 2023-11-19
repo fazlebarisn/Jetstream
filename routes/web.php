@@ -19,6 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/me', [SonyController::class, 'index']);
+
 // Route::get('/me', [SonyController::class, 'index'])->name('me.index');
 // Route::post('/me', [SonyController::class, 'store'])->name('me.store');
 
