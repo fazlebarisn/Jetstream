@@ -35,6 +35,11 @@ class TodoList extends Component
         $todo->delete();
     }
 
+    public function toggle( Todo $todo ){
+        $todo->completed = !$todo->completed;
+        $todo->save();
+    }
+
     public function render()
     {
         $todos = Todo::latest()
