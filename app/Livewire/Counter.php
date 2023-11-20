@@ -3,28 +3,25 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use App\Models\Sony;
 
 class Counter extends Component
 {
-    public $count = 1;
-    public $me = 1;
- 
-    public function increment()
-    {
-        $this->count++;
-    }
- 
-    public function decrement()
-    {
-        $this->count--;
+    public $name;
+    public $city;
+
+    public function createUser(){
+
+        Sony::create([
+            'name'  => $this->name,
+            'city'  => $this->city,
+        ]);
+
     }
 
-    public function rw(){
-        return 44;
-    }
- 
     public function render()
     {
-        return view('livewire.counter');
+        $users = Sony::all();
+        return view( 'livewire.counter', compact('users') );
     }
 }

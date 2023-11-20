@@ -20,9 +20,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/live', [Counter::class, 'index']);
+Route::get('live', [SonyController::class, 'live']);
 
-Route::get('/me', [SonyController::class, 'index']);
+Route::get('me', [SonyController::class, 'index']);
 Route::get('me/create', [SonyController::class, 'create']);
 Route::post('me/create', [SonyController::class, 'store'])->name('me.store');
 

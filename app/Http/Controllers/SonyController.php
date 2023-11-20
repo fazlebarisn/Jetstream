@@ -18,6 +18,9 @@ class SonyController extends Controller
         // return view('me');
     }
 
+    public function live(){
+        return view('live');
+    }
     public function create(){
         return view('create');
     }
