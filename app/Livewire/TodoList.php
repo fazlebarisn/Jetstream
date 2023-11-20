@@ -31,6 +31,10 @@ class TodoList extends Component
 
     }
 
+    public function delete( Todo $todo ){
+        $todo->delete();
+    }
+
     public function render()
     {
         $todos = Todo::latest()
