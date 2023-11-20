@@ -4,6 +4,7 @@ use App\Http\Controllers\SonyController;
 use App\Livewire\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TodoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,11 +17,15 @@ use App\Http\Controllers\HomeController;
 |
 */
 
+Route::get('todo', [TodoController::class, 'index'])->name('todo.index');
+
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('live', [SonyController::class, 'live']);
+
 
 Route::get('me', [SonyController::class, 'index']);
 Route::get('me/create', [SonyController::class, 'create']);
